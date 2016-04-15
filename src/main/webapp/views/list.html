@@ -1,0 +1,24 @@
+<h2>Stock<a  class="btn btn-primary pull-right" href="#/create"><i
+        class="icon-plus-sign icon-white"></i>Add Stock</a></h2>
+
+<table class="table table-hover">
+<tr>
+    <tr>
+        <th>Stock Id</th>
+        <th>Code</th>
+       <th>Name</th>
+    </tr>
+
+
+</tr>
+    <tr ng-repeat="todo in todos">
+        <td>{{todo.stockId}}</td>
+        <td>
+            {{todo.code}}
+        </td>
+        <td>
+            {{todo.name}}
+        </td>
+    </tr>
+</table>
+
