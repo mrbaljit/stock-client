@@ -1,30 +1,42 @@
 <div layout="column" ng-cloak class="md-inline-form">
     <md-toolbar class="md-theme-light">
         <h2 class="md-toolbar-tools">
-            <span>Stock Information</span>
+            <span>Product Information</span>
         </h2>
     </md-toolbar>
-    <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+    <md-content layout-gt-sm="row" layout-padding>
         <div>
             <md-input-container>
                 <label>Code</label>
-                <input ng-model="stock.code">
+                <input ng-model="stock.code" required>
             </md-input-container>
             <md-input-container>
                 <label>Name</label>
                 <input ng-model="stock.name">
             </md-input-container>
             <md-input-container>
-                <label>Price</label>
+                <label>Cost</label>
+                <input ng-model="stock.price">
+            </md-input-container>
+            <md-input-container>
+                <label>Retail Price</label>
                 <input ng-model="stock.price">
             </md-input-container>
         </div>
     </md-content>
-    <md-toolbar class="md-accent">
-        <h2 class="md-toolbar-tools">
-            <span>Stock Discount Information</span>
-        </h2>
-    </md-toolbar>
+    <md-content layout-gt-md="row" layout-padding>
+        <md-input-container class="md-block">
+            <label>Product Description</label>
+            <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus=""></textarea>
+        </md-input-container>
+    </md-content>
+    <md-content layout-gt-md="row" layout-padding>
+        <md-input-container class="md-block">
+            <label>Product Invoice Description</label>
+            <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus=""></textarea>
+        </md-input-container>
+    </md-content>
+    <md-subheader class="md-primary">Product Discount</md-subheader>
     <md-content layout-padding>
         <div>
             <form name="userForm">
@@ -33,14 +45,18 @@
                         Apply discount
                     </md-switch>
                 </div>
-                <div layout-gt-sm="row">
+                <div layout-gt-sm="row" ng-if="data.cb1">
                         <h5>Start Date</h5>
-                        <md-datepicker ng-model="stock.startDate" md-placeholder="Start date"></md-datepicker>
+                        <md-datepicker ng-model="stock.startDate"  md-placeholder="Start date"></md-datepicker>
                         <p>&nbsp;&nbsp;&nbsp;</p>
                         <h5>End Date</h5>
                         <md-datepicker ng-model="stock.endDate" md-placeholder="End date"></md-datepicker>
+                    <p>&nbsp;&nbsp;&nbsp;</p>
+                    <md-checkbox ng-model="data.cbw" aria-label="Never Expires">
+                        Never Expires
+                    </md-checkbox>
                 </div>
-                <div layout-gt-sm="row">
+                <div layout-gt-sm="row" ng-if="data.cb1">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Discount Types</label>
                         <md-select ng-model="selectDiscount">
@@ -70,60 +86,10 @@
                         <input type="number" step="any" name="rate" ng-model="stock.amount" />
                     </md-input-container>
                 </div>
-                <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>First name</label>
-                        <input ng-model="user.firstName">
-                    </md-input-container>
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>Long Last Name That Will Be Truncated And 3 Dots (Ellipsis) Will Appear At The End</label>
-                        <input ng-model="theMax">
-                    </md-input-container>
-                </div>
-                <md-input-container class="md-block">
-                    <label>Address</label>
-                    <input ng-model="user.address">
-                </md-input-container>
-                <md-input-container md-no-float class="md-block">
-                    <input ng-model="user.address2" placeholder="Address 2">
-                </md-input-container>
-                <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>City</label>
-                        <input ng-model="user.city">
-                    </md-input-container>
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>State</label>
-                        <md-select ng-model="user.state">
-                            <md-option ng-repeat="state in states" value="{{state.abbrev}}">
-                                {{state.abbrev}}
-                            </md-option>
-                        </md-select>
-                    </md-input-container>
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>Postal Code</label>
-                        <input name="postalCode" ng-model="user.postalCode" placeholder="12345"
-                               required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
-                        <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
-                            <div ng-message="required" class="my-message">You must supply a postal code.</div>
-                            <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
-                                code.
-                            </div>
-                            <div ng-message="md-maxlength" class="my-message">
-                                Don't use the long version silly...we don't need to be that specific...
-                            </div>
-                        </div>
-                    </md-input-container>
-                </div>
-                <md-input-container class="md-block">
-                    <label>Biography</label>
-                    <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-                </md-input-container>
-
 
                 <md-content>
                     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                        <md-button class="md-raised md-primary"  ng-click="saveStock()">Save Stock</md-button>
+                        <md-button class="md-raised md-primary"  ng-click="saveStock()">Save Product</md-button>
                     </section>
                 </md-content>
 
