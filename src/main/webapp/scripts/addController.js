@@ -8,12 +8,17 @@
 
     function AddController($scope, $http, $filter) {
 
-     $scope.saveStock = _saveStock();
-     function _saveStock() {
+     $scope.stock = {};
+     $scope.discountTypes = ["$NZ", "% Discount"];
+
+    $scope.saveStock = function () {
+    console.log($scope.stock.code);
+    console.log($scope.stock.name);
+    console.log($scope.stock.price);
       var dataObj = {
-				name : "coffee",
-				code : "COFF",
-                stockData : { price : '200'}
+				name : $scope.stock.name,
+				code : $scope.stock.code,
+                stockData : { price : $scope.stock.price}
 		};
 
      var res = $http.post('http://localhost:9090/stock/addStock', dataObj);

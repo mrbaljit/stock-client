@@ -1,26 +1,73 @@
 <div layout="column" ng-cloak class="md-inline-form">
+    <md-toolbar class="md-theme-light">
+        <h2 class="md-toolbar-tools">
+            <span>Stock Information</span>
+        </h2>
+    </md-toolbar>
     <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
         <div>
             <md-input-container>
-                <label>Title</label>
-                <input ng-model="user.title">
+                <label>Code</label>
+                <input ng-model="stock.code">
             </md-input-container>
             <md-input-container>
-                <label>Email</label>
-                <input ng-model="user.email" type="email">
+                <label>Name</label>
+                <input ng-model="stock.name">
+            </md-input-container>
+            <md-input-container>
+                <label>Price</label>
+                <input ng-model="stock.price">
             </md-input-container>
         </div>
     </md-content>
+    <md-toolbar class="md-accent">
+        <h2 class="md-toolbar-tools">
+            <span>Stock Discount Information</span>
+        </h2>
+    </md-toolbar>
+
     <md-content layout-padding>
         <div>
             <form name="userForm">
                 <div layout-gt-xs="row">
-                    <md-input-container class="md-block" flex-gt-xs>
-                        <label>Company (Disabled)</label>
-                        <input ng-model="user.company" disabled>
+                    <md-switch ng-model="data.cb1" aria-label="Apply discount">
+                        Apply discount
+                    </md-switch>
+                </div>
+                <div layout-gt-sm="row">
+                        <h5>Start Date</h5>
+                        <md-datepicker ng-model="stock.startDate" md-placeholder="Start date"></md-datepicker>
+                        <p>&nbsp;&nbsp;&nbsp;</p>
+                        <h5>End Date</h5>
+                        <md-datepicker ng-model="stock.endDate" md-placeholder="End date"></md-datepicker>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Discount Types</label>
+                        <md-select ng-model="selectedItem">
+                            <md-optgroup label="Discount Types">
+                                <md-option ng-value="item" ng-repeat="item in discountTypes">{{item}}</md-option>
+                            </md-optgroup>
+                        </md-select>
                     </md-input-container>
-                    <md-datepicker ng-model="user.submissionDate" md-placeholder="Enter date">
-                    </md-datepicker>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Take</label>
+                        <input type="number" step="any" name="rate" ng-model="stock.rate" />
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Discount Types</label>
+                        <md-select ng-model="selectedItem">
+                            <md-optgroup label="Discount Types">
+                                <md-option ng-value="item" ng-repeat="item in discountTypes">{{item}}</md-option>
+                            </md-optgroup>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Take</label>
+                        <input type="number" step="any" name="rate" ng-model="stock.rate" />
+                    </md-input-container>
                 </div>
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
@@ -71,6 +118,14 @@
                     <label>Biography</label>
                     <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
                 </md-input-container>
+
+
+                <md-content>
+                    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                        <md-button class="md-raised md-primary"  ng-click="saveStock()">Save Stock</md-button>
+                    </section>
+                </md-content>
+
             </form>
         </div>
     </md-content>
