@@ -8,7 +8,6 @@
 
     function AddController($scope, $http, $filter) {
 
-var self = this;
     $scope.discountTypes = [{
       'id': 1,
       'label': "$NZ"
@@ -16,14 +15,16 @@ var self = this;
       'id': 2,
       'label': '% discount'}
       ];
-    $scope.selectedId = 0;
-    $scope.selectedUser = function() {
-     console.log($scope.selectedId);
-    }
 
+    $scope.discountOnPrd = [{
+      'id': 1,
+      'label': "all products"
+    }, {
+      'id': 2,
+      'label': 'orders over'}
+      ];
 
-     $scope.stock = {};
-
+    $scope.stock = {};
     $scope.saveStock = function () {
     console.log($scope.stock.code);
     console.log($scope.stock.name);

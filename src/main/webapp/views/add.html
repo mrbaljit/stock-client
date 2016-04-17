@@ -25,7 +25,6 @@
             <span>Stock Discount Information</span>
         </h2>
     </md-toolbar>
-
     <md-content layout-padding>
         <div>
             <form name="userForm">
@@ -58,23 +57,18 @@
                         <label>Take %</label>
                         <input type="number" step="any" name="rate" ng-model="stock.amount" />
                     </md-input-container>
-                </div>
-                <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
-                    <h5>Discount Types List</h5>
-                    <md-radio-group ng-model="selectedId" >
-                        <div ng-repeat='discount in discountTypes1' class="row">
-                            <div flex layout='row' layout-padding layout-align="start center" >
-                                <md-radio-button flex
-                                                 ng-value="discount.id"
-                                                 class="md-primary"
-                                                 ng-click="selectedUser()">
-                                    {{discount.label}}
-                                </md-radio-button>
-                            </div>
-                        </div>
-                    </md-radio-group>
-                        </md-input-container>
+                        <label>Of for</label>
+                        <md-select ng-model="discountTypeOnProduct">
+                            <md-optgroup label="Of for">
+                                <md-option ng-value="item.id" ng-repeat="item in discountOnPrd">{{item.label}}</md-option>
+                            </md-optgroup>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm ng-if="discountTypeOnProduct === 2">
+                        <label>Amount</label>
+                        <input type="number" step="any" name="rate" ng-model="stock.amount" />
+                    </md-input-container>
                 </div>
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
