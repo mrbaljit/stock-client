@@ -44,30 +44,37 @@
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Discount Types</label>
-                        <md-select ng-model="selectedItem">
+                        <md-select ng-model="selectDiscount">
                             <md-optgroup label="Discount Types">
-                                <md-option ng-value="item" ng-repeat="item in discountTypes">{{item}}</md-option>
+                                <md-option ng-value="item.id" ng-repeat="item in discountTypes">{{item.label}}</md-option>
                             </md-optgroup>
                         </md-select>
                     </md-input-container>
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>Take</label>
-                        <input type="number" step="any" name="rate" ng-model="stock.rate" />
+                    <md-input-container class="md-block" flex-gt-sm ng-if="selectDiscount === 1">
+                        <label>Take $$$</label>
+                        <input type="number" step="any" name="rate" ng-model="stock.percentage" />
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm ng-if="selectDiscount === 2">
+                        <label>Take %</label>
+                        <input type="number" step="any" name="rate" ng-model="stock.amount" />
                     </md-input-container>
                 </div>
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
-                        <label>Discount Types</label>
-                        <md-select ng-model="selectedItem">
-                            <md-optgroup label="Discount Types">
-                                <md-option ng-value="item" ng-repeat="item in discountTypes">{{item}}</md-option>
-                            </md-optgroup>
-                        </md-select>
-                    </md-input-container>
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>Take</label>
-                        <input type="number" step="any" name="rate" ng-model="stock.rate" />
-                    </md-input-container>
+                    <h5>Discount Types List</h5>
+                    <md-radio-group ng-model="selectedId" >
+                        <div ng-repeat='discount in discountTypes1' class="row">
+                            <div flex layout='row' layout-padding layout-align="start center" >
+                                <md-radio-button flex
+                                                 ng-value="discount.id"
+                                                 class="md-primary"
+                                                 ng-click="selectedUser()">
+                                    {{discount.label}}
+                                </md-radio-button>
+                            </div>
+                        </div>
+                    </md-radio-group>
+                        </md-input-container>
                 </div>
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
