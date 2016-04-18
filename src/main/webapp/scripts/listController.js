@@ -14,7 +14,11 @@
 
         $http.get('http://localhost:9090/stock/allStock').success(function (data) {
             $scope.todos = data;
-            console.log(data)
+            console.log(data);
+            console.log(data[0].productDiscount);
+            console.log(data[0].productCode);
+            var abc = new Date(data[0].productDiscount.endDate);
+            console.log(abc)
 
         }).error(function (data, status) {
             console.log('Error ' + data)
