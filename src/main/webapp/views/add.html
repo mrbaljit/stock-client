@@ -8,7 +8,7 @@
         <div>
             <md-input-container class="md-block">
                 <label>Product Category</label>
-                <md-select ng-model="stock.productCategory">
+                <md-select ng-model="product.productCategory">
                     <md-optgroup label="Product Category">
                         <md-option ng-value="item.id" ng-repeat="item in prdCategoryType">{{item.label}}</md-option>
                     </md-optgroup>
@@ -16,32 +16,32 @@
             </md-input-container>
             <md-input-container>
                 <label>Code</label>
-                <input ng-model="stock.productCode" required>
+                <input ng-model="product.productCode" required>
             </md-input-container>
             <md-input-container>
                 <label>Name</label>
-                <input ng-model="stock.productName">
+                <input ng-model="product.productName">
             </md-input-container>
             <md-input-container>
                 <label>Cost</label>
-                <input ng-model="stock.costPrice">
+                <input ng-model="product.costPrice">
             </md-input-container>
             <md-input-container>
                 <label>Retail Price</label>
-                <input ng-model="stock.retailPrice">
+                <input ng-model="product.retailPrice">
             </md-input-container>
         </div>
     </md-content>
     <md-content layout-gt-xl="row" layout-padding>
         <md-input-container class="md-block">
             <label>Product Description</label>
-            <textarea ng-model="stock.productDescription" md-maxlength="150" rows="5" md-select-on-focus=""></textarea>
+            <textarea ng-model="product.productDescription" md-maxlength="150" rows="5" md-select-on-focus=""></textarea>
         </md-input-container>
     </md-content>
     <md-content layout-gt-xl="row" layout-padding>
         <md-input-container class="md-block">
             <label>Product Invoice Description</label>
-            <textarea ng-model="stock.productInvoiceDescription" md-maxlength="150" rows="5" md-select-on-focus=""></textarea>
+            <textarea ng-model="product.productInvoiceDescription" md-maxlength="150" rows="5" md-select-on-focus=""></textarea>
         </md-input-container>
     </md-content>
 
@@ -56,43 +56,43 @@
                 </div>
                 <div layout-gt-sm="row" ng-if="data.cb1">
                         <h5>Start Date</h5>
-                        <md-datepicker ng-model="stock.discountStartDate"  md-placeholder="Start date"></md-datepicker>
+                        <md-datepicker ng-model="product.discountStartDate"  md-placeholder="Start date"></md-datepicker>
                         <p>&nbsp;&nbsp;&nbsp;</p>
                         <h5>End Date</h5>
-                        <md-datepicker ng-model="stock.discountEndDate" md-placeholder="End date"></md-datepicker>
+                        <md-datepicker ng-model="product.discountEndDate" md-placeholder="End date"></md-datepicker>
                     <p>&nbsp;&nbsp;&nbsp;</p>
-                    <md-checkbox ng-model="stock.discountExpires" aria-label="Never Expires">
+                    <md-checkbox ng-model="product.discountExpires" aria-label="Never Expires">
                         Never Expires
                     </md-checkbox>
                 </div>
                 <div layout-gt-sm="row" ng-if="data.cb1">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Discount Types</label>
-                        <md-select ng-model="stock.discountType">
+                        <md-select ng-model="product.discountType">
                             <md-optgroup label="Discount Types">
                                 <md-option ng-value="item.id" ng-repeat="item in discountTypes">{{item.label}}</md-option>
                             </md-optgroup>
                         </md-select>
                     </md-input-container>
-                    <md-input-container class="md-block" flex-gt-sm ng-if="stock.discountType === 1">
+                    <md-input-container class="md-block" flex-gt-sm ng-if="product.discountType === 1">
                         <label>Take $$$</label>
-                        <input type="number" step="any" name="rate" ng-model="stock.discountAmount" />
+                        <input type="number" step="any" name="rate" ng-model="product.discountAmount" />
                     </md-input-container>
-                    <md-input-container class="md-block" flex-gt-sm ng-if="stock.discountType === 2">
+                    <md-input-container class="md-block" flex-gt-sm ng-if="product.discountType === 2">
                         <label>Take %</label>
-                        <input type="number" step="any" name="rate" ng-model="stock.discountPercentage" />
+                        <input type="number" step="any" name="rate" ng-model="product.discountPercentage" />
                     </md-input-container>
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Of for</label>
-                        <md-select ng-model="stock.discountForProduct">
+                        <md-select ng-model="product.discountForProduct">
                             <md-optgroup label="Of for">
                                 <md-option ng-value="item.id" ng-repeat="item in discountOnPrd">{{item.label}}</md-option>
                             </md-optgroup>
                         </md-select>
                     </md-input-container>
-                    <md-input-container class="md-block" flex-gt-sm ng-if="stock.discountForProduct === 2">
+                    <md-input-container class="md-block" flex-gt-sm ng-if="product.discountForProduct === 2">
                         <label>Amount</label>
-                        <input type="number" step="any" name="rate" ng-model="stock.discountAmountForOrdersOver" />
+                        <input type="number" step="any" name="rate" ng-model="product.discountAmountForOrdersOver" />
                     </md-input-container>
                 </div>
 

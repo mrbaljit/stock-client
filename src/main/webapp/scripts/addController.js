@@ -42,39 +42,39 @@
         ];
 
 
-    $scope.stock = {};
+    $scope.product = {};
 
-        var abc = '2015-12-19';
-        $scope.stock.discountStartDate = new Date(abc);
-        console.log($scope.stock.discountStartDate);
+       // var abc = '2015-12-19';
+        //$scope.product.discountStartDate = new Date(abc);
+        //console.log($scope.product.discountStartDate);
 
     $scope.saveStock = function () {
-    console.log($scope.stock.productCode);
-    console.log($scope.stock.productName);
-    console.log($scope.stock.retailPrice);
+    console.log($scope.product.productCode);
+    console.log($scope.product.productName);
+    console.log($scope.product.retailPrice);
 
 
 
       var dataObj = {
-          productCategory: $scope.stock.productCategory,
-          productCode : $scope.stock.productCode,
-          productName : $scope.stock.productName,
-          costPrice : $scope.stock.costPrice,
-          retailPrice : $scope.stock.retailPrice,
+          productCategory: $scope.product.productCategory,
+          productCode : $scope.product.productCode,
+          productName : $scope.product.productName,
+          costPrice : $scope.product.costPrice,
+          retailPrice : $scope.product.retailPrice,
 
-          productDescription : $scope.stock.productDescription,
-          productInvoiceDescription : $scope.stock.productInvoiceDescription,
+          productDescription : $scope.product.productDescription,
+          productInvoiceDescription : $scope.product.productInvoiceDescription,
 
-          discountStartDate : $scope.stock.discountStartDate,
-          discountEndDate : $scope.stock.discountEndDate,
-          discountExpires : $scope.stock.discountExpires,
+          discountStartDate : $scope.product.discountStartDate,
+          discountEndDate : $scope.product.discountEndDate,
+          discountExpires : $scope.product.discountExpires,
 
-          discountType : $scope.stock.discountType,
-          discountAmount : $scope.stock.discountAmount,
-          discountPercentage : $scope.stock.discountPercentage,
+          discountType : $scope.product.discountType,
+          discountAmount : $scope.product.discountAmount,
+          discountPercentage : $scope.product.discountPercentage,
 
-          discountAmountForOrdersOver : $scope.stock.discountAmountForOrdersOver,
-          discountForProduct : $scope.stock.discountForProduct
+          discountAmountForOrdersOver : $scope.product.discountAmountForOrdersOver,
+          discountForProduct : $scope.product.discountForProduct
 
 		};
 
