@@ -45,8 +45,10 @@
     $scope.product = {};
 
        // var abc = '2015-12-19';
-        //$scope.product.discountStartDate = new Date(abc);
-        //console.log($scope.product.discountStartDate);
+        $scope.product.discountStartDate = new Date();
+        $scope.product.discountEndDate = new Date();
+        console.log($scope.product.discountStartDate);
+        console.log($scope.product.discountEndDate);
 
     $scope.saveStock = function () {
     console.log($scope.product.productCode);
