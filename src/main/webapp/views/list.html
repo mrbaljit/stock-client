@@ -6,31 +6,28 @@
     </md-content>
 </div>
 
-
-<table class="table table-hover">
-<tr>
-    <tr>
-        <th>Stock Id</th>
-        <th>Code</th>
-       <th>Name</th>
-    <th>Discount</th>
-    </tr>
-
-
-</tr>
-    <tr ng-repeat="todo in todos">
-        <td>{{todo.productId}}</td>
-        <td>
-            {{todo.productCode}}
-        </td>
-        <td>
-            {{todo.productName}}
-        </td>
-        <td>
-            {{todo.productDiscount.neverExpires}}
-        </td>
-    </tr>
-</table>
-
-
-
+<div ng-cloak layout-gt-sm="row" layout="column">
+    <div flex-gt-sm flex>
+        <md-toolbar layout="row" class="md-hue-3">
+            <div class="md-toolbar-tools">
+                <span>Products</span>
+            </div>
+        </md-toolbar>
+        <md-content>
+            <md-list flex>
+                <md-list-item class="md-3-line" ng-repeat="item in todos" ng-click="null">
+                    <div class="md-list-item-text" layout="column" flex="20">
+                        <h4>Product ID : {{ item.productId }}</h4> </div>
+                    <div class="md-list-item-text" layout="column" flex="30">
+                        <h4>Product Code : {{ item.productCode }}</h4></div>
+                    <div class="md-list-item-text" layout="column" flex="grow">
+                        <p>Cost Price : {{ item.costPrice | currency}}</p>
+                        <p>Retail Price : {{ item.retailPrice | currency }}</p>
+                        <p>Product Name : {{ item.productName }}</p>
+                    </div>
+                    <md-divider ng-if="!$last"></md-divider>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </div>
+</div>
