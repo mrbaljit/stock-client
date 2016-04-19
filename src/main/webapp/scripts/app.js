@@ -22,8 +22,8 @@
                 }
             }
         }),
-       $stateProvider.state('addStock', {
-            url: '/addStock',
+       $stateProvider.state('addProduct', {
+            url: '/addProduct',
             views: {
                 'content': {
                     templateUrl: 'views/add.html',

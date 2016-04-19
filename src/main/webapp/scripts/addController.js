@@ -82,7 +82,7 @@
 
         console.log(dataObj);
 
-     var res = $http.post('http://localhost:9090/stock/addStock', dataObj);
+     var res = $http.post('http://localhost:9090/stock/addProduct', dataObj);
 		res.success(function(data, status, headers, config) {
 			$scope.message = data;
 		});
