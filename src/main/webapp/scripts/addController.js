@@ -45,11 +45,11 @@
     $scope.product = {};
 
        // var abc = '2015-12-19';
-        $scope.product.discountStartDate = new Date();
-        $scope.product.discountEndDate = new Date();
-        console.log($scope.product.discountStartDate);
-        console.log($scope.product.discountEndDate);
-
+     //   $scope.product.discountStartDate = new Date();
+     //   $scope.product.discountEndDate = new Date();
+     //   console.log($scope.product.discountStartDate);
+     //   console.log($scope.product.discountEndDate);
+//
     $scope.saveStock = function () {
     console.log($scope.product.productCode);
     console.log($scope.product.productName);
@@ -67,8 +67,8 @@
           productDescription : $scope.product.productDescription,
           productInvoiceDescription : $scope.product.productInvoiceDescription,
 
-          discountStartDate : $scope.product.discountStartDate,
-          discountEndDate : $scope.product.discountEndDate,
+          discountStartDate : $scope.product.discountStartDate.toJSON(),
+          discountEndDate : $scope.product.discountEndDate.toJSON(),
           discountExpires : $scope.product.discountExpires,
 
           discountType : $scope.product.discountType,
@@ -84,6 +84,8 @@
 
      var res = $http.post('http://localhost:9090/stock/addProduct', dataObj);
 		res.success(function(data, status, headers, config) {
+            console.log(dataObj);
+
 			$scope.message = data;
 		});
 		res.error(function(data, status, headers, config) {

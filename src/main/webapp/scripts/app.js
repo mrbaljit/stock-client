@@ -13,7 +13,7 @@
 
         $urlRouterProvider.otherwise('/');
 
-        $stateProvider.state('listStock', {
+        $stateProvider.state('listProduct', {
             url: '/',
             views: {
                 'content': {
