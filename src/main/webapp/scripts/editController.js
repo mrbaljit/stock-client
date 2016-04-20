@@ -1,12 +1,22 @@
 (function (global, angular) {
     'use strict';
     angular
-        .module("nz.com.stock.addstock", [])
-        .controller("AddController", AddController);
+        .module("nz.com.stock.editstock", [])
+        .controller("EditController", EditController);
 
-    AddController.$inject = ['$scope', '$http', '$filter'];
+    EditController.$inject = ['$scope', '$http', '$filter', '$stateParams'];
 
-    function AddController($scope, $http, $filter) {
+    function EditController($scope, $http, $filter, $stateParams){
+
+        $http.get('http://localhost:9090/stock/' + $stateParams.id +'/getProduct').success(function (data) {
+            $scope.product = data;
+            $scope.product.discountEndDate = new Date($scope.product.discountEndDate);
+            $scope.product.discountStartDate = new Date($scope.product.discountStartDate);
+        }).error(function (data, status) {
+            console.log('Error ' + data)
+        });        
+        
+        
 
     $scope.discountTypes = [{
       'id': 1,
@@ -85,7 +95,7 @@
 
 
 
-     var res = $http.post('http://localhost:9090/stock/addProduct', dataObj);
+     var res = $http.post('http://localhost:9090/stock/updateProduct', dataObj);
 
         console.log($scope.product.discountStartDate);
         console.log($scope.product.discountEndDate);

@@ -4,6 +4,7 @@
     angular.module("nz.com.stock", [
         'nz.com.stock.liststock',
         'nz.com.stock.addstock',
+        'nz.com.stock.editstock',
         'ngCookies',
         'ngResource',
         'ngSanitize',
@@ -30,11 +31,21 @@
                     controller: 'AddController'
                 }
             }
-        })
+        }),
+            $stateProvider.state('editProduct', {
+                url: '/:id/editProduct',
+                views: {
+                    'content': {
+                        templateUrl: 'views/edit.html',
+                        controller: 'EditController'
+                    }
+                }
+            })
 
     }]).config(function($mdDateLocaleProvider) {
         $mdDateLocaleProvider.formatDate = function(date) {
             return moment(date).format("DD/MM/YYYY");
+            //return moment(date).format('L');
         };
     });
 })(this, angular);

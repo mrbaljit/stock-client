@@ -14,13 +14,6 @@
             </div>
         </md-toolbar>
         <md-content>
-
-            <md-radio-group ng-model="data.group1">
-                <md-radio-button value="Apple" class="md-primary">Apple</md-radio-button>
-                <md-radio-button value="Banana"> Banana </md-radio-button>
-                <md-radio-button value="Mango">Mango</md-radio-button>
-            </md-radio-group>
-
             <md-list flex>
                 <md-list-item class="md-3-line" ng-repeat="item in todos" ng-click="null">
                     <div class="md-list-item-text" layout="column" flex="20">
@@ -31,6 +24,9 @@
                         <p>Cost Price : {{ item.costPrice | currency}}</p>
                         <p>Retail Price : {{ item.retailPrice | currency }}</p>
                         <p>Product Name : {{ item.productName }}</p>
+                    </div>
+                    <div class="md-list-item-text" layout="column" flex="10">
+                        <md-button class="md-raised" ui-sref="editProduct({id:item.productId})">Edit</md-button>
                     </div>
                     <md-divider ng-if="!$last"></md-divider>
                 </md-list-item>
