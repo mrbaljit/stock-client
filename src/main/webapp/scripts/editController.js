@@ -12,6 +12,7 @@
             $scope.product = data;
             $scope.product.discountEndDate = new Date($scope.product.discountEndDate);
             $scope.product.discountStartDate = new Date($scope.product.discountStartDate);
+            console.log($scope.product, " gggggggggg");
         }).error(function (data, status) {
             console.log('Error ' + data)
         });        
@@ -68,6 +69,7 @@
     console.log($scope.product.retailPrice);
 
       var dataObj = {
+          productId: $scope.product.productId,
           productCategory: $scope.product.productCategory,
           productCode : $scope.product.productCode,
           productName : $scope.product.productName,
