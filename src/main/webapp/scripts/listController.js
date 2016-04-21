@@ -13,12 +13,7 @@
         };
 
         $http.get('http://localhost:9090/product/allProducts').success(function (data) {
-            $scope.todos = data;
-            console.log(data);
-            console.log(data[0].productCode);
-            var abc = new Date(data[0].discountEndDate);
-            console.log(abc)
-
+            $scope.products = data;
         }).error(function (data, status) {
             console.log('Error ' + data)
         });
