@@ -14,15 +14,24 @@
 
         $urlRouterProvider.otherwise('/');
 
-        $stateProvider.state('listProduct', {
+        $stateProvider.state('main', {
             url: '/',
             views: {
                 'content': {
-                    templateUrl: 'views/list.html',
-                    controller: 'ListController'
+                    templateUrl: 'views/main.html',
+                    controller: 'MainController'
                 }
             }
         }),
+            $stateProvider.state('listProducts', {
+                url: '/listProducts',
+                views: {
+                    'content': {
+                        templateUrl: 'views/list.html',
+                        controller: 'ListController'
+                    }
+                }
+            }),
        $stateProvider.state('addProduct', {
             url: '/addProduct',
             views: {
@@ -47,5 +56,13 @@
             return moment(date).format("DD/MM/YYYY");
             //return moment(date).format('L');
         };
-    });
+    }).controller('MainController', function($scope) {
+           // $scope.imagePath = 'img/washedout.png';
+        })
+        .config(function($mdThemingProvider) {
+            $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
+            $mdThemingProvider.theme('dark-orange').backgroundPalette('orange').dark();
+            $mdThemingProvider.theme('dark-purple').backgroundPalette('deep-purple').dark();
+            $mdThemingProvider.theme('dark-blue').backgroundPalette('blue').dark();
+        });
 })(this, angular);
