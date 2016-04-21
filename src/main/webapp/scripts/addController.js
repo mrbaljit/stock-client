@@ -1,7 +1,7 @@
 (function (global, angular) {
     'use strict';
     angular
-        .module("nz.com.stock.addstock", [])
+        .module("nz.com.product.addProduct", [])
         .controller("AddController", AddController);
 
     AddController.$inject = ['$scope', '$http', '$filter'];
@@ -52,7 +52,7 @@
 //
 
         console.log(new Date());
-    $scope.saveStock = function () {
+    $scope.saveProduct = function () {
     console.log($scope.product.productCode);
     console.log($scope.product.productName);
     console.log($scope.product.retailPrice);
@@ -85,7 +85,7 @@
 
 
 
-     var res = $http.post('http://localhost:9090/stock/addProduct', dataObj);
+     var res = $http.post('http://localhost:9090/product/createUpdateProduct', dataObj);
 
         console.log($scope.product.discountStartDate);
         console.log($scope.product.discountEndDate);

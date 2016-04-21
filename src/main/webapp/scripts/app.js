@@ -1,10 +1,10 @@
 (function (global, angular) {
     'use strict';
 
-    angular.module("nz.com.stock", [
-        'nz.com.stock.liststock',
-        'nz.com.stock.addstock',
-        'nz.com.stock.editstock',
+    angular.module("nz.com.product", [
+        'nz.com.product.listProduct',
+        'nz.com.product.addProduct',
+        'nz.com.product.editProduct',
         'ngCookies',
         'ngResource',
         'ngSanitize',
