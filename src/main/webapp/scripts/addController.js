@@ -4,9 +4,13 @@
         .module("nz.com.product.addProduct", [])
         .controller("AddController", AddController);
 
-    AddController.$inject = ['$scope', '$http', '$filter'];
+    AddController.$inject = ['$scope', '$http', '$filter', '$state'];
 
-    function AddController($scope, $http, $filter) {
+    function AddController($scope, $http, $filter, $state) {
+
+        $scope.cancel = function () {
+            $state.go('listProducts');
+        }
 
     $scope.discountTypes = [{
       'id': 1,
