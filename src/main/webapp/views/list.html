@@ -1,16 +1,14 @@
-<div ng-cloak>
-    <md-content>
-        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-            <md-button class="md-raised md-primary"  ng-click="addProductPage()">Add Product</md-button>
-        </section>
-    </md-content>
-</div>
-
 <div ng-cloak layout-gt-sm="row" layout="column">
     <div flex-gt-sm flex>
-        <md-toolbar layout="row" class="md-hue-3">
+        <md-toolbar>
             <div class="md-toolbar-tools">
-                <span>Products</span>
+                <h2>
+                    <span>Products</span>
+                </h2>
+                <span flex></span>
+                <md-button class="md-raised" aria-label="Add Product" ng-click="addProductPage()">
+                    Add Product
+                </md-button>
             </div>
         </md-toolbar>
         <md-content>
