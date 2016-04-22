@@ -20,14 +20,13 @@
                         <h4>Product ID : {{ item.productId }}</h4> </div>
                     <div class="md-list-item-text" layout="column" flex="30">
                         <h4>Product Code : {{ item.productCode }}</h4></div>
-                    <div class="md-list-item-text" layout="column" flex="grow">
+                    <div class="md-list-item-text" layout="column" flex="40">
                         <p>Cost Price : {{ item.costPrice | currency}}</p>
                         <p>Retail Price : {{ item.retailPrice | currency }}</p>
                         <p>Product Name : {{ item.productName }}</p>
                     </div>
-                    <div class="md-list-item-text" layout="column" flex="10">
-                        <md-button class="md-raised" ui-sref="editProduct({id:item.productId})">Edit</md-button>
-                    </div>
+                        <md-button ui-sref="editProduct({id:item.productId})"><md-icon md-svg-src="ic_mode_edit_black_24px.svg" aria-label="Edit"></md-icon></md-button>
+                        <md-button ng-click="deleteProduct($event, item.productId)"><md-icon md-svg-src="ic_delete_black_24px.svg" aria-label="Delete"></md-icon></md-button>
                     <md-divider ng-if="!$last"></md-divider>
                 </md-list-item>
             </md-list>
