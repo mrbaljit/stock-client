@@ -1,19 +1,19 @@
 <div ng-cloak >
     <md-content class="md-padding" layout-xs="column" layout="row">
-        <div flex-xs flex-gt-xs="50" layout="column">
+        <div flex-xs flex-gt-xs="30" layout="column">
             <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">Product Management</span>
-                        <span class="md-subhead">Large</span>
+                        <span class="md-subhead">Enter product information...</span>
                     </md-card-title-text>
                     <md-card-title-media>
-                        <div class="md-media-lg" style="background-color: #999999;"></div>
+                        <div class="md-media-lg" style="background-color: #999999;"><img src="images/products.jpg" /></div>
                     </md-card-title-media>
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button>Action 1</md-button>
-                    <md-button>Action 2</md-button>
+                    <md-button ng-click="listProduct()">List Products</md-button>
+                    <md-button ng-click="addProduct()">Add Product</md-button>
                 </md-card-actions>
             </md-card>
             <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
@@ -40,7 +40,7 @@
                 </md-card-content>
             </md-card>
         </div>
-        <div flex-xs flex-gt-xs="50" layout="column">
+        <div flex-xs flex-gt-xs="30" layout="column">
             <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
                 <md-card-title>
                     <md-card-title-text>
@@ -57,8 +57,7 @@
                 </md-card-actions>
             </md-card>
             <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
-                <img src="rm.jpg" />
-
+              <!--  <img src="rm.jpg" />-->
                     <md-card-title>
                         this is card title
                     </md-card-title>
@@ -69,7 +68,7 @@
                         <span class="md-subhead">Medium</span>
                     </md-card-title-text>
                     <md-card-title-media>
-                        <div class="md-media-lg card-media" style="background-color: #999999;"><img src="rm.jpg" /></div>
+                        <div class="md-media-lg card-media" style="background-color: #999999;"><img src="images/rm.jpg" /></div>
                     </md-card-title-media>
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="end center">

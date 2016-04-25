@@ -56,8 +56,16 @@
             return moment(date).format("DD/MM/YYYY");
             //return moment(date).format('L');
         };
-    }).controller('MainController', function($scope) {
+    }).controller('MainController', function($scope, $state) {
            // $scope.imagePath = 'img/washedout.png';
+
+            $scope.addProduct = function () {
+                       return $state.go('addProduct');
+            };
+
+            $scope.listProduct = function () {
+                       return $state.go('listProducts');
+            };
         })
         .config(function($mdThemingProvider) {
             $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
