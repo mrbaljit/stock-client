@@ -4,13 +4,18 @@
         .module("nz.com.product.listProduct", [])
         .controller("ListController", ListController);
 
-    ListController.$inject = ['$scope', '$http', '$filter', '$state', '$mdDialog'];
+    ListController.$inject = ['$scope', '$http', '$filter', '$state', '$mdDialog', 'productService'];
 
-    function ListController($scope, $http, $filter, $state, $mdDialog) {
+    function ListController($scope, $http, $filter, $state, $mdDialog, productService) {
 
-        getAllProducts();
 
-       $scope.addProductPage = function () {
+        //$scope.products = products;
+        productService.getAllProducts().then(function (data) {
+
+            $scope.products = data;
+        });
+
+        $scope.addProductPage = function () {
             return $state.go('addProduct');
         };
 
@@ -44,14 +49,6 @@
                 );
         }};
 
-        function getAllProducts() {
-            $http.get('http://localhost:9090/product/allProducts').success(function (data) {
-                $scope.products = data;
-            }).error(function (data, status) {
-                console.log('Error ' + data)
-            });
-        }
-        
     }
 
 })(this, angular);

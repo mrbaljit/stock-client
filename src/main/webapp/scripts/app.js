@@ -2,6 +2,7 @@
     'use strict';
 
     angular.module("nz.com.product", [
+        'nz.com.product.productService',
         'nz.com.product.listProduct',
         'nz.com.product.addProduct',
         'nz.com.product.editProduct',
@@ -30,6 +31,11 @@
                         templateUrl: 'views/list.html',
                         controller: 'ListController'
                     }
+                },
+                resolve: {
+                    products: ['productService', function (productService) {
+                        return productService.getAllProducts();
+                    }]
                 }
             }),
        $stateProvider.state('addProduct', {

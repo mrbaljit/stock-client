@@ -4,9 +4,9 @@
         .module("nz.com.product.addProduct", [])
         .controller("AddController", AddController);
 
-    AddController.$inject = ['$scope', '$http', '$filter', '$state'];
+    AddController.$inject = ['$scope', '$http', '$filter', '$state', 'productService'];
 
-    function AddController($scope, $http, $filter, $state) {
+    function AddController($scope, $http, $filter, $state, productService) {
 
         $scope.cancel = function () {
             $state.go('listProducts');
@@ -87,21 +87,7 @@
 		};
 
 
-
-
-     var res = $http.post('http://localhost:9090/product/createUpdateProduct', dataObj);
-
-        console.log($scope.product.discountStartDate);
-        console.log($scope.product.discountEndDate);
-
-		res.success(function(data, status, headers, config) {
-            console.log(dataObj);
-
-			$scope.message = data;
-		});
-		res.error(function(data, status, headers, config) {
-			alert( "failure message: " + JSON.stringify({data: data}));
-		});
+        productService.createUpdateProduct(dataObj);
 
 		}
 

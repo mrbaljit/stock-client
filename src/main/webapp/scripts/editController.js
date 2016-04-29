@@ -4,9 +4,9 @@
         .module("nz.com.product.editProduct", [])
         .controller("EditController", EditController);
 
-    EditController.$inject = ['$scope', '$http', '$filter', '$stateParams', '$state'];
+    EditController.$inject = ['$scope', '$http', '$filter', '$stateParams', '$state', 'productService'];
 
-    function EditController($scope, $http, $filter, $stateParams, $state){
+    function EditController($scope, $http, $filter, $stateParams, $state, productService){
 
         $http.get('http://localhost:9090/product/' + $stateParams.id +'/getProduct').success(function (data) {
             $scope.product = data;
@@ -84,19 +84,8 @@
           discountForProduct : $scope.product.discountForProduct
 		};
 
-     var res = $http.post('http://localhost:9090/product/createUpdateProduct', dataObj);
-
-        console.log($scope.product.discountStartDate);
-        console.log($scope.product.discountEndDate);
-
-		res.success(function(data, status, headers, config) {
-            console.log(dataObj);
-            $state.go('listProducts');
-			$scope.message = data;
-		});
-		res.error(function(data, status, headers, config) {
-			alert( "failure message: " + JSON.stringify({data: data}));
-		});
+        productService.createUpdateProduct(dataObj);
+        $state.go('listProducts');
 
 		}
     }
