@@ -31,11 +31,6 @@
                         templateUrl: 'views/list.html',
                         controller: 'ListController'
                     }
-                },
-                resolve: {
-                    products: ['productService', function (productService) {
-                        return productService.getAllProducts();
-                    }]
                 }
             }),
        $stateProvider.state('addProduct', {

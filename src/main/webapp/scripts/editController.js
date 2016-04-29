@@ -85,7 +85,6 @@
 		};
 
         productService.createUpdateProduct(dataObj);
-        $state.go('listProducts');
 
 		}
     }
