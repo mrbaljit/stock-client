@@ -1,0 +1,42 @@
+(function (global, angular) {
+    'use strict';
+
+    angular.module("nz.com.product.productService", [])
+        .service("productService", ['$http', '$filter', '$state', '$q',
+            function ($http, $filter, $state, $q) {
+
+                return{
+                    getAllProducts:getAllProducts,
+                    createUpdateProduct : createUpdateProduct
+                }
+
+
+        function createUpdateProduct(dataObj) {
+
+            var res = $http.post('http://localhost:9090/product/createUpdateProduct', dataObj);
+
+            res.success(function(data, status, headers, config) {
+                console.log("eeee");
+                $state.go('listProducts');
+            });
+            res.error(function(data, status, headers, config) {
+                alert( "failure message: " + JSON.stringify({data: data}));
+            });
+        }
+
+
+       function getAllProducts() {
+           var def = $q.defer();
+            $http.get('http://localhost:9090/product/allProducts').success(function (data) {
+                console.log(data, " vvvv");
+                def.resolve(data);
+                //return data;
+            }).error(function (data, status) {
+                console.log('Error ' + data)
+            });
+           return def.promise;
+        }
+
+    }]);
+    
+})(this, angular);
