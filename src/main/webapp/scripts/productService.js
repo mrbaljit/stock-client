@@ -7,7 +7,8 @@
 
                 return{
                     getAllProducts:getAllProducts,
-                    createUpdateProduct : createUpdateProduct
+                    createUpdateProduct : createUpdateProduct,
+                    deleteProduct : deleteProduct
                 }
 
 
@@ -23,6 +24,20 @@
                 alert( "failure message: " + JSON.stringify({data: data}));
             });
         }
+
+                function deleteProduct(id) {
+                    $http.post('http://localhost:9090/product/' + id +'/deleteProduct')
+                        .then(
+                            function(response){
+                                console.log(response, "success ");
+                                $state.go('listProducts', {}, {reload: true})
+                            },
+                            function(response){
+                                // failure call back
+                                console.log( "failure message: " );
+                            }
+                        );
+                }
 
 
        function getAllProducts() {

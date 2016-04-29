@@ -29,25 +29,12 @@
                 .cancel('Cancel');
 
             $mdDialog.show(confirm).then(function() {
-                 deleteProduct(id);
+                productService.deleteProduct(id);
             }, function() {
 
             });
-
-           function deleteProduct(id) {
-                $http.post('http://localhost:9090/product/' + id +'/deleteProduct')
-                .then(
-                    function(response){
-                        console.log("success ");
-                        getAllProducts();
-                        $state.go('listProducts');
-                    },
-                    function(response){
-                        // failure call back
-                        console.log( "failure message: " );
-                    }
-                );
-        }};
+        
+        };
 
     }
 
