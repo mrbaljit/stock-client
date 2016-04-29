@@ -8,9 +8,23 @@
                 return{
                     getAllProducts:getAllProducts,
                     createUpdateProduct : createUpdateProduct,
-                    deleteProduct : deleteProduct
+                    deleteProduct : deleteProduct,
+                    getProduct : getProduct
                 }
 
+                function getProduct(id) {
+                    var def = $q.defer();
+                    $http.get('http://localhost:9090/product/' + id +'/getProduct').success(function (data) {
+                        console.log(data, " get Product");
+                        def.resolve(data);
+                        //return data;
+                    }).error(function (data, status) {
+                        console.log('Error ' + data)
+                    });
+                    return def.promise;
+                }                
+                
+                
 
         function createUpdateProduct(dataObj) {
 

@@ -8,12 +8,11 @@
 
     function EditController($scope, $http, $filter, $stateParams, $state, productService){
 
-        $http.get('http://localhost:9090/product/' + $stateParams.id +'/getProduct').success(function (data) {
+        productService.getProduct($stateParams.id).then(function (data) {
             $scope.product = data;
             $scope.product.discountEndDate = new Date($scope.product.discountEndDate);
             $scope.product.discountStartDate = new Date($scope.product.discountStartDate);
-        }).error(function (data, status) {
-            console.log('Error ' + data)
+
         });
 
         $scope.cancel = function () {
