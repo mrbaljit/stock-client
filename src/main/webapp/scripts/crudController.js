@@ -1,7 +1,7 @@
 (function (global, angular) {
     'use strict';
     angular
-        .module("nz.com.product.editProduct", [])
+        .module("nz.com.product.crudProduct", [])
         .controller("CrudController", CrudController);
 
     CrudController.$inject = ['$scope', '$http', '$filter', '$stateParams', '$state', 'productService'];

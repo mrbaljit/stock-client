@@ -4,7 +4,7 @@
     angular.module("nz.com.product", [
         'nz.com.product.productService',
         'nz.com.product.listProduct',
-        'nz.com.product.editProduct',
+        'nz.com.product.crudProduct',
         'ngCookies',
         'ngResource',
         'ngSanitize',
