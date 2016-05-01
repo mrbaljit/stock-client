@@ -4,7 +4,6 @@
     angular.module("nz.com.product", [
         'nz.com.product.productService',
         'nz.com.product.listProduct',
-        'nz.com.product.addProduct',
         'nz.com.product.editProduct',
         'ngCookies',
         'ngResource',
@@ -24,41 +23,46 @@
                 }
             }
         }),
-            $stateProvider.state('listProducts', {
-                url: '/listProducts',
-                views: {
-                    'content': {
-                        templateUrl: 'views/list.html',
-                        controller: 'ListController'
-                    }
-                }
-            }),
-       $stateProvider.state('addProduct', {
-            url: '/addProduct',
+        $stateProvider.state('listProducts', {
+            url: '/listProducts',
             views: {
                 'content': {
-                    templateUrl: 'views/add.html',
-                    controller: 'AddController'
+                    templateUrl: 'views/list.html',
+                    controller: 'ListController'
                 }
             }
         }),
-            $stateProvider.state('editProduct', {
-                url: '/:id/editProduct',
-                views: {
-                    'content': {
-                        templateUrl: 'views/edit.html',
-                        controller: 'EditController'
-                    }
+        $stateProvider.state('addProduct', {
+            url: '/addProduct',
+            data: {
+                entryPoint : 'add'
+            },
+
+            views: {
+                'content': {
+                    templateUrl: 'views/add.html',
+                    controller: 'CrudController'
                 }
-            })
+            }
+        }),
+        $stateProvider.state('editProduct', {
+            url: '/:id/editProduct',
+            data: {
+                entryPoint : 'edit'
+            },
+            views: {
+                'content': {
+                    templateUrl: 'views/edit.html',
+                    controller: 'CrudController'
+                }
+            }
+        })
 
     }]).config(function($mdDateLocaleProvider) {
         $mdDateLocaleProvider.formatDate = function(date) {
             return moment(date).format("DD/MM/YYYY");
-            //return moment(date).format('L');
         };
     }).controller('MainController', function($scope, $state) {
-           // $scope.imagePath = 'img/washedout.png';
 
             $scope.addProduct = function () {
                        return $state.go('addProduct');

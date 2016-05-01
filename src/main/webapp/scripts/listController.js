@@ -8,10 +8,7 @@
 
     function ListController($scope, $http, $filter, $state, $mdDialog, productService) {
 
-
-        //$scope.products = products;
         productService.getAllProducts().then(function (data) {
-
             $scope.products = data;
         });
 
